@@ -25,13 +25,13 @@ const Order = () => {
 
 
   return (
-    <div>
+    <div className="">
         <Helmet>
                 <title>Bistro Boss | Order Food</title>
             </Helmet>
       <Cover img={orderCoverImg} title={"Order Food"}></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabindex(index)}>
-        <TabList>
+        <TabList className="mt-10 text-center">
           <Tab>Salad</Tab>
           <Tab>Pizza</Tab>
           <Tab>Soups</Tab>
