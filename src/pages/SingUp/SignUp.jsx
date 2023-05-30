@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const {
@@ -18,23 +19,36 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
-      .then(() => {
-        console.log("User Profile Updated");
-        reset();
-        Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'User Register Successful',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        navigate("/")
+
+      updateUserProfile(data.name, data.photoURL).then(() => {
+        const savedUser = {name: data.name, email: data.email}
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "User Register Successful",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
       })
+      .catch(error => console.log(error))
     });
   };
 
@@ -155,6 +169,7 @@ const SignUp = () => {
                 </Link>
               </p>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

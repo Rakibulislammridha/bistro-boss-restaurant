@@ -1,11 +1,14 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { FaCalendarAlt, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { FaBook, FaCalendarAlt, FaHome, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
 
     const [cart] = useCart();
+
+    // Todo: load data from the server
+    const isAdmin = true;
 
   return (
     <div className="drawer drawer-mobile">
@@ -23,7 +26,39 @@ const Dashboard = () => {
       <div className="drawer-side bg-[#D1A054]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80">
-        <li>
+
+          {
+            isAdmin ? <>
+            
+            <li>
+            <NavLink to="/dashboard/home">
+              <FaHome></FaHome> Admin Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/reservation">
+              <FaUtensils></FaUtensils> Add Item
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/history">
+              <FaWallet></FaWallet> Manege Items
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/history">
+              <FaBook></FaBook> Manege Bookings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/allUsers">
+              <FaUsers></FaUsers> All Users
+            </NavLink>
+          </li>
+            
+            </> : <>
+            
+            <li>
             <NavLink to="/dashboard/home">
               <FaHome></FaHome> User Home
             </NavLink>
@@ -46,6 +81,10 @@ const Dashboard = () => {
             </NavLink>
             
           </li>
+            </>
+          }
+
+        
           <div className="divider"></div>
           <li>
           <NavLink to="/">
@@ -58,7 +97,6 @@ const Dashboard = () => {
           <li>
           <NavLink to="/order/salad">Order Food</NavLink>
           </li>
-          <li></li>
         </ul>
       </div>
     </div>
