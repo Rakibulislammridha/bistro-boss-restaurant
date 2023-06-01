@@ -2,13 +2,16 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaCalendarAlt, FaHome, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
 
     const [cart] = useCart();
 
     // Todo: load data from the server
-    const isAdmin = true;
+    
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
   return (
     <div className="drawer drawer-mobile">
