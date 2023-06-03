@@ -20,7 +20,6 @@ const AllUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -50,7 +49,6 @@ const AllUsers = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
                 refetch()
               Swal.fire("Deleted!", "User is Deleted Successfully", "success");

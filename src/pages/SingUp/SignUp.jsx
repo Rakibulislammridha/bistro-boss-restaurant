@@ -21,7 +21,6 @@ const SignUp = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
 
       updateUserProfile(data.name, data.photoURL).then(() => {
         const savedUser = {name: data.name, email: data.email}
@@ -34,7 +33,6 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.insertedId) {
               reset();
               Swal.fire({

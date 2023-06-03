@@ -6,12 +6,10 @@ import Swal from "sweetalert2";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
-  console.log(cart);
 
   const total = cart.reduce((sum, item) => item.price + sum, 0);
 
   const handleDelete = (id) =>{
-    // console.log(item);
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",

@@ -7,8 +7,6 @@ import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
 
     const [cart] = useCart();
-
-    // Todo: load data from the server
     
     // const isAdmin = true;
     const [isAdmin] = useAdmin();
@@ -16,7 +14,7 @@ const Dashboard = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content">
         <Outlet></Outlet>
 
         <label
@@ -39,12 +37,12 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/reservation">
-              <FaUtensils></FaUtensils> Add Item
+            <NavLink to="/dashboard/addItem">
+              <FaUtensils></FaUtensils> Add  An Item
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/history">
+            <NavLink to="/dashboard/manageItems">
               <FaWallet></FaWallet> Manege Items
             </NavLink>
           </li>
