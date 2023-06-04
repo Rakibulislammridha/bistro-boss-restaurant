@@ -47,8 +47,8 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/history">
-              <FaBook></FaBook> Manege Bookings
+            <NavLink to="/">
+              <FaBook></FaBook> Manege Bookings (Not Implemented)
             </NavLink>
           </li>
           <li>
@@ -65,13 +65,13 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/reservation">
-              <FaCalendarAlt></FaCalendarAlt> Reservation
+            <NavLink to="/">
+              <FaCalendarAlt></FaCalendarAlt> Reservation (Not Implemented)
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/history">
-              <FaWallet></FaWallet> Payment History
+            <NavLink to="/">
+              <FaWallet></FaWallet> Payment History (Not Implemented)
             </NavLink>
           </li>
           <li>
@@ -93,7 +93,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-          <NavLink to="/menu"><></> Menu</NavLink>
+          <NavLink to="/menu"> Menu</NavLink>
           </li>
           <li>
           <NavLink to="/order/salad">Order Food</NavLink>
